@@ -12,14 +12,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // ❤️ Heart Toggle
   document.querySelectorAll(".heart-btn").forEach(btn => {
     btn.addEventListener("click", () => {
-      if (btn.textContent === "🤍") {
+      const liked = btn.dataset.liked === "true";
+
+      if (liked) {
+        btn.textContent = "🤍";
+        btn.classList.remove("text-red-500");
+        hearts = Math.max(0, hearts - 1);
+        btn.dataset.liked = "false";
+      } else {
         btn.textContent = "💗";
         btn.classList.add("text-red-500");
         hearts++;
-      } else {
-        btn.textContent = "🤍";
-        btn.classList.remove("text-red-500");
-        hearts--;
+        btn.dataset.liked = "true";
       }
       heartCount.textContent = hearts;
     });
@@ -29,14 +33,17 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".copy-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const card = btn.closest(".service-card");
-      const number = card.dataset.number;
-      navigator.clipboard.writeText(number);
+      const number = card?.dataset.number;
 
-      // Increase Copy Counter
-      copies++;
-      copyCountEl.textContent = copies;
+      if (!number) return;
 
-      alert(`Copied: ${number}`);
+      navigator.clipboard.writeText(number).then(() => {
+        copies++;
+        copyCountEl.textContent = copies;
+        alert(`Copied: ${number}`);
+      }).catch(() => {
+        alert("Failed to copy!");
+      });
     });
   });
 
@@ -49,21 +56,25 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const card = btn.closest(".service-card");
-      const title = card.dataset.title;
-      const number = card.dataset.number;
+      const title = card?.dataset.title || "Unknown Service";
+      const number = card?.dataset.number || "N/A";
 
       alert(`Calling ${title} at ${number}`);
-      coins -= 20;
+
+      coins = Math.max(0, coins - 20);
       coinCount.textContent = coins;
 
       // 🕒 Add Call to History
       const time = new Date().toLocaleTimeString();
-      if (callHistory.children[0]?.textContent === "No recent calls") {
+      if (callHistory.firstElementChild?.textContent === "No recent calls") {
         callHistory.innerHTML = "";
       }
 
       const li = document.createElement("li");
-      li.innerHTML = `<span class="font-semibold">${title}</span> - ${number} <br><span class="text-gray-500 text-xs">${time}</span>`;
+      li.innerHTML = `
+        <span class="font-semibold">${title}</span> - ${number}
+        <br><span class="text-gray-500 text-xs">${time}</span>
+      `;
       callHistory.prepend(li);
     });
   });
