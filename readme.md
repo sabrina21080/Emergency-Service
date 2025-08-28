@@ -5,9 +5,9 @@
   - iii.querySelector("selector")  কেবল প্রথম ম্যাচ করা এলিমেন্টকে রিটার্ন করে
   - iv.querySelectorAll("selector")  সব ম্যাচ করা এলিমেন্টকে NodeList আকারে রিটার্ন করে।
 **2.How do you create and insert a new element into the DOM? -**
-- **i.-** Create an element with document.createElement().
-- **ii.-**Add text, attributes, content
-- **iii.-**Insert it into the DOM using appendChild, append, prepend, before, after, etc.
+- i. Create an element with document.createElement().
+- ii.Add text, attributes, content
+- iii.Insert it into the DOM using appendChild, append, prepend, before, after, etc.
  **3.What is Event Bubbling and how does it work? -**
 যখন কোনো ইভেন্ট  ঘটে, সেটা প্রথমে ভিতরের এলিমেন্টে  ট্রিগার হয়।
 তারপর ধাপে ধাপে বাইরের parent , আরও বাইরের parent , সবশেষে document চলে যায়।
