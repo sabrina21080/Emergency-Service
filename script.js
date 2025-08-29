@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let copies = 0;
   let coins = 100;
 
-  // ❤️ Heart Toggle
+  //  Heart Toggle
   document.querySelectorAll(".heart-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const liked = btn.dataset.liked === "true";
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         hearts = Math.max(0, hearts - 1);
         btn.dataset.liked = "false";
       } else {
-        btn.textContent = "💗";
+        btn.textContent = "❤️";
         btn.classList.add("text-red-500");
         hearts++;
         btn.dataset.liked = "true";
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 📋 Copy
+  //  Copy
   document.querySelectorAll(".copy-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const card = btn.closest(".service-card");
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 📞 Call
+  //  Call
   document.querySelectorAll(".call-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       if (coins < 20) {
@@ -64,8 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
       coins = Math.max(0, coins - 20);
       coinCount.textContent = coins;
 
-      // 🕒 Add Call to History
-      const time = new Date().toLocaleTimeString();
+      //  Add Call to History
+       const time = new Date().toLocaleTimeString();
       if (callHistory.firstElementChild?.textContent === "No recent calls") {
         callHistory.innerHTML = "";
       }
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 🗑 Clear History
+  //  Clear History
   clearHistory.addEventListener("click", () => {
     callHistory.innerHTML = `<li class="text-gray-400">No recent calls</li>`;
   });
