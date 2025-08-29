@@ -65,19 +65,23 @@ document.addEventListener("DOMContentLoaded", () => {
       coinCount.textContent = coins;
 
       //  Add Call to History
-       const time = new Date().toLocaleTimeString();
+
+ const time = new Date().toLocaleTimeString();
       if (callHistory.firstElementChild?.textContent === "No recent calls") {
         callHistory.innerHTML = "";
       }
 
       const li = document.createElement("li");
+      li.className = "flex justify-between items-center border-b pb-1"; // flex row layout
       li.innerHTML = `
-        <span class="font-semibold">${title}</span> - ${number}
-        <br><span class="text-gray-500 text-xs">${time}</span>
+        <div>
+          <span class="font-semibold">${title}</span> - ${number}
+        </div>
+        <span class="text-gray-500 text-xs">${time}</span>
       `;
       callHistory.prepend(li);
     });
-  });
+  }); 
 
   //  Clear History
   clearHistory.addEventListener("click", () => {
