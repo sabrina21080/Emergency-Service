@@ -11,15 +11,15 @@
 - iii.Insert it into the DOM using appendChild, append, prepend, before, after, etc.
 
  **3.What is Event Bubbling and how does it work? -**
-ইভেন্ট বাবলিং হল DOM (Document Object Model) এর একটি মেকানিজম, যেখানে একটি এলিমেন্টে ইভেন্ট ট্রিগার হলে সেই ইভেন্ট DOM ট্রি এর মাধ্যমে উপরের দিকে বাবল করে (চাইল্ড থেকে প্যারেন্ট এলিমেন্টে)। অর্থাৎ, যদি একটি চাইল্ড এলিমেন্টে ক্লিক করা হয়, তাহলে সেই ইভেন্টটি তার প্যারেন্ট এলিমেন্টেও ট্রিগার হবে।
+ইভেন্ট বাবলিং হল DOM  এর একটি মেকানিজম, যেখানে একটি এলিমেন্টে ইভেন্ট ট্রিগার হলে সেই ইভেন্ট DOM ট্রি এর মাধ্যমে উপরের দিকে বাবল করে । অর্থাৎ, যদি একটি চাইল্ড এলিমেন্টে ক্লিক করা হয়, তাহলে সেই ইভেন্টটি তার প্যারেন্ট এলিমেন্টেও ট্রিগার হবে।
 যখন কোনো ইভেন্ট  ঘটে, সেটা প্রথমে ভিতরের এলিমেন্টে  ট্রিগার হয়।
 
  **4.What is Event Delegation in JavaScript? Why is it useful? -**
 - **Event Delegation-**  parent element-এ event listener বসানো, যাতে child element-এ ঘটে যাওয়া ইভেন্ট parent-এর মাধ্যমে ধরা যায়
 - **usefull for-**
-পারফরম্যান্স ভালো হয়
-ডাইনামিক এলিমেন্ট হ্যান্ডেল করা যায়
-কোড সহজ ও ছোট হয়
+-পারফরম্যান্স ভালো হয়
+-ডাইনামিক এলিমেন্ট হ্যান্ডেল করা যায়
+-কোড সহজ ও ছোট হয়
 
 
 **5.What is the difference between preventDefault() and stopPropagation() methods?-**
