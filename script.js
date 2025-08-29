@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
       li.className = "flex justify-between items-center border-b pb-1"; // flex row layout
       li.innerHTML = `
         <div>
-          <span class="font-semibold">${title}</span> - ${number}
+          <span class="font-semibold">${title}</span> <br> ${number}
         </div>
         <span class="text-gray-500 text-xs">${time}</span>
       `;
